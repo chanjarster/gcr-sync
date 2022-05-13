@@ -1,15 +1,16 @@
 name: Sync gcr images
-
 on:
   workflow_dispatch: 
-
 jobs:
   sync:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Pull nfs image
+    - name: Log into docker.io
+      uses: docker/login-action@v2.0.0
+      with:
+        username: ${{ secrets.DOCKER_USER }}
+        password: ${{ secrets.DOCKER_PASSWD }}
+    - name: Sync nfs image
       run: |
         docker pull k8s.gcr.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2
         docker tag k8s.gcr.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2 chanjarster/gcr/sig-storage/nfs-subdir-external-provisioner:v4.0.2
