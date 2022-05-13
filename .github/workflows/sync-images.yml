@@ -14,4 +14,4 @@ jobs:
       run: |
         docker pull k8s.gcr.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2
         docker tag k8s.gcr.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2 chanjarster/k8s-nfs-subdir-external-provisioner:v4.0.2
-        docker push chanjarster/gcr/sig-storage/nfs-subdir-external-provisioner:v4.0.2
+        docker push chanjarster/k8s-nfs-subdir-external-provisioner:v4.0.2
